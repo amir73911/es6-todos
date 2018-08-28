@@ -1,0 +1,26 @@
+// main: ../main.scss
+
+.user {
+  display: none;
+  align-items: center;
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    background-color: $color-dark-gray;
+    margin-right: $gutter / 2;
+  }
+}
+
+.user-logout {
+  margin-left: $gutter / 2;
+}
+
+.users-link,
+.user-logout {
+  display: none;
+}

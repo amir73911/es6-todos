@@ -1,0 +1,91 @@
+@import "variables";
+@import "mixins/shadow";
+@import "components/todo";
+@import "components/header";
+@import "components/user";
+@import "components/users-list";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $site-background;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: $color-dark;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - #{$header-height});
+  padding-top: $gutter;
+}
+
+.page {
+  display: none;
+  padding: $gutter;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+// Grid settings
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: $header-height auto;
+  grid-template-areas:
+    "header"
+    "main";
+
+  .header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  @media (min-width: $tablet) {
+    grid-template-columns: 1fr $app-width 1fr;
+    grid-template-rows: $header-height auto;
+    grid-template-areas:
+      "header header header"
+      ". main .";
+  }
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+
+  &:empty {
+    display: none;
+  }
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+.show-form-btn {
+  background: $color-main url('../images/add.svg') center center no-repeat;
+  background-size: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  display: none;
+  margin: 0 auto;
+}

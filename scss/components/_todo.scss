@@ -1,0 +1,165 @@
+// main: ../main.scss
+
+.todo-list {
+  display: none;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 $gutter;
+  list-style: none;
+  background: $color-white;
+  @include card-shadow();
+
+  &:empty {
+    display: none;
+  }
+}
+
+.todo {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid $color-gray;
+  position: relative;
+  overflow: hidden;
+  background: $color-white;
+
+  span {
+    display: block;
+    line-height: inherit;
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: 10px $gutter;
+  }
+
+  .todo__create-date {
+    font-size: 12px;
+    line-height: 22px;
+    color: $color-dark-gray;
+
+    input {
+      height: 22px;
+    }
+  }
+
+  .todo__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 18px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__complete-btn {
+    align-self: center;
+    background: none;
+    width: $gutter * 1.5;
+    height: $gutter * 1.5;
+    border-radius: 50%;
+    border: 2px solid $color-main;
+    flex-shrink: 0;
+    margin-left: $gutter;
+  }
+
+  &__button {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    border: none;
+    width: 70px;
+    flex-shrink: 0;
+    margin-right: -70px;
+    transition: $base-transition;
+
+    &--save {
+      background-color: $color-green;
+      background-image: url('../images/save.svg');
+      display: none;
+    }
+
+    &--delete {
+      background-color: $color-red;
+      background-image: url('../images/delete.svg');
+    }
+  }
+
+  &__create-btn {
+    background: $color-main url('../images/add.svg') center center no-repeat;
+    background-size: 30px;
+    border: none;
+    width: 70px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &:hover {
+    .todo__button {
+      transition-delay: 0.5s;
+      margin-right: 0;
+    }
+  }
+
+  input {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: none;
+    background: none;
+  }
+
+  &--completed {
+    background: $color-white2;
+
+    .todo__body {
+      opacity: 0.6;
+    }
+
+    .todo__title,
+    .todo__description {
+      text-decoration: line-through;
+    }
+
+    .todo__complete-btn {
+      background: rgba($color-main, 0.7);
+    }
+  }
+
+  &--add-form {
+    display: none;
+    margin-top: -$gutter;
+
+    input {
+      display: block;
+    }
+  }
+
+  &--editing {
+    background: rgba($color-orange, 0.3);
+
+    .todo__button--save {
+      display: block;
+    }
+
+    .todo__create-date,
+    .todo__title,
+    .todo__description {
+      span {
+        display: none;
+      }
+    }
+
+    input {
+      display: block;
+    }
+  }
+}

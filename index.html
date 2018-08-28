@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TODOs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="user" onclick="router.go('/me')">
+        <div class="user__icon"></div>
+        <div class="user__name"></div>
+      </div>
+      <div class="header__gutter"></div>
+      <div class="header__link users-link" onclick="router.go('/users')">Пользователи</div>
+      <div class="header__link user-logout" onclick="auth.logout()">Выйти</div>
+      <div class="header__link user-login" onclick="auth.login()">Войти через Facebook</div>
+    </header>
+    <main>
+
+      <h1 id="appTitle"></h1>
+
+      <section id="todosPage" class="page">
+        <ul id="todoList" class="todo-list"></ul>
+        <form name="addTodo" class="todo todo--add-form" onsubmit="todos.addTodo(); return false">
+          <button type="submit" class="todo__create-btn" title="Добавить таск"></button>
+          <div class="todo__body">
+            <div class="todo__create-date">
+              <input type="date" name="todoDate" required autocomplete="off">
+            </div>
+            <div class="todo__title">
+              <input type="text" name="todoTitle" required autocomplete="off" placeholder="Что нужно сделать?">
+            </div>
+            <div class="todo__description">
+              <input type="text" name="todoDescription" autocomplete="off" placeholder="Краткое описание задачи">
+            </div>
+          </div>
+          <button type="button" class="todo__button todo__button--delete" onclick="todos.hideAddingForm()" title="Отменить"></button>
+        </form>
+        <button type="button" class="show-form-btn" title="Добавить таск" onclick="todos.showAddingForm()"></button>
+      </section>
+
+      <section id="usersPage" class="page">
+        <ul id="usersList" class="users-list"></ul>
+      </section>
+
+      </main>
+  </div>
+
+  <script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dates.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/users.js"></script>
+  <script src="js/todos.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

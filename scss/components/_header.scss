@@ -1,0 +1,27 @@
+// main: ../main.scss
+
+.header {
+  background: $color-white;
+  padding: $gutter / 2;
+  display: flex;
+  align-items: center;
+  height: $header-height;
+  box-shadow: $shadow;
+
+  &__gutter {
+    flex-grow: 1;
+  }
+
+  &__link {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .user {
+    cursor: pointer;
+  }
+}

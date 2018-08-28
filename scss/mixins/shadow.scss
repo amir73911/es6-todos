@@ -1,0 +1,34 @@
+// main: ../main.scss
+
+@mixin card-shadow() {
+  $shadow: 0 0 3px rgba($color-dark, 0.2);
+  $offset: 10px;
+
+  & {
+    position: relative;
+    box-shadow: $shadow;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    height: $offset;
+    background: $color-white2;
+    box-shadow: $shadow;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &::before {
+    bottom: -$offset;
+    width: calc(100% - #{$offset * 2});
+  }
+
+  &::after {
+    bottom: -$offset / 2;
+    width: calc(100% - #{$offset});
+  }
+}

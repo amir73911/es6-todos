@@ -1,0 +1,24 @@
+// main: main.scss
+
+$tablet: 740px;
+
+$gutter: 20px;
+$base-transition: 0.2s;
+
+$color-white: #fff;
+$color-white2: #f1f2f6;
+$color-white3: #ced6e0;
+$color-gray: #dfe4ea;
+$color-dark-gray: #747d8c;
+$color-dark: #2f3542;
+$color-blue: #1e90ff;
+$color-red: #ff6b81;
+$color-orange: #ffa502;
+$color-green: #2ed573;
+
+$site-background: $color-white3;
+$color-main: $color-blue;
+
+$app-width: 600px;
+$header-height: 60px;
+$shadow: 0 0 20px rgba($color-dark, 0.2);
